@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made By gab0x</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: background 0.3s, color 0.3s;
+        }
+        :root {
+            --bg-color: #b3e5fc; /* Celeste */
+            --text-color: #006064;
+            --header-bg: #0288d1;
+            --header-text: white;
+            --container-bg: #fff9c4; /* Amarillo claro */
+        }
+        [data-theme="dark"] {
+            --bg-color: #0d47a1; /* Azul */
+            --text-color: #000000;
+            --header-bg: #002171;
+            --header-text: #80cbc4;
+            --container-bg: #ffeb3b; /* Amarillo */
+        }
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 1em 0;
+            text-align: center;
+            font-size: 2em;
+        }
+        .container {
+            padding: 2em;
+            max-width: 800px;
+            margin: auto;
+            background: var(--container-bg);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        .content {
+            text-align: center;
+        }
+        .content h2 {
+            margin-top: 0;
+        }
+        .content p {
+            line-height: 1.6;
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 1em;
+            right: 1em;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .theme-toggle img {
+            width: 40px;
+            height: 40px;
+            transition: opacity 0.3s;
+        }
+        .theme-toggle img.light {
+            opacity: 1;
+        }
+        .theme-toggle img.dark {
+            opacity: 0;
+        }
+        [data-theme="dark"] .theme-toggle img.light {
+            opacity: 0;
+        }
+        [data-theme="dark"] .theme-toggle img.dark {
+            opacity: 1;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 2em;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Gabox - mi bio btw 
+    </header>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <img src="logo-oscuro.png" alt="Cambiar a modo oscuro" class="light">
+        <img src="logo-claro.png" alt="Cambiar a modo claro" class="dark">
+    </button>
+    <div class="container">
+        <img src="gabox.gif" alt="Foto de perfil" class="profile-pic">
+        <div class="content">
+            <h2>Gabox</h2>
+            <p>Hola Soy Gabox, un apacionado al fornai y me encanta programar. Mi equipo favorito es Boca Juniors y soy de la republica argentina.</p>
+            <p>Yo se hablar algo de ingles (demaciado basico) y me gusta conocer a gente nueva.</p>
+        </div>
+    </div>
+    <div class="footer">
+        Hecho por Gabox con ❤
+    </div>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+        }
+        document.body.setAttribute('data-theme', 'dark');
+    </script>
+</body>
+</html>
+
+</html>
